@@ -16,7 +16,7 @@ Set-Location $Path
 Set-ExecutionPolicy Unrestricted -Scope Process -Force -Confirm:$false
 
 . $Path\include.ps1
-. $Path\Data\secret.ps1 #pssssst!
+. $Path\Data\secret.ps1 #Pssssst!
 
 ## Revert Executio Policy Changes
 Set-ExecutionPolicy Default -Scope Process -Force -Confirm:$false
@@ -117,14 +117,15 @@ New-ItemProperty    -Path "HKCU:\SOFTWARE\Microsoft\Terminal Server Client\Serve
 New-ItemProperty    -Path "HKCU:\SOFTWARE\Microsoft\Terminal Server Client\Servers\$ip" -Name "CertHash" -PropertyType Binary -Value $cert -Force -EA SilentlyContinue 
 New-ItemProperty    -Path "HKCU:\SOFTWARE\Microsoft\Terminal Server Client\Servers\$ip" -Name "Settings" -PropertyType Binary -Value $sett -Force -EA SilentlyContinue 
 
+# Feel free to uncomment after u provide those setup files :)
 Write-Host "OVPN..."
-Install-Msi (Get-Path "Setup\ovpn.msi")
+#Install-Msi (Get-Path "Setup\ovpn.msi") 
 
 Write-Host "Edge..."
-Install-Msi (Get-Path "Setup\edge.msi")
+#Install-Msi (Get-Path "Setup\edge.msi")
 
 $profileFile = Get-Path "Data\profile.ovpn" 
-$profile = $profileFile -replace ".ovpn"
+$profile = $profileFile -Replace ".ovpn"
 $openConfig =  (Get-Path "..\OpenVPN\config\" -Create | Select -Last 1)
 
 Write-Host "Distribution of client OVPN profile..."
