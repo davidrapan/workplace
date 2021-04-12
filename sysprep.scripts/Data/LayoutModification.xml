@@ -1,0 +1,15 @@
+<LayoutModificationTemplate xmlns="http://schemas.microsoft.com/Start/2014/LayoutModification" xmlns:DefaultLayout="http://schemas.microsoft.com/Start/2014/FullDefaultLayout" Version="1">
+    <LayoutOptions StartTileGroupCellWidth="6" />
+    <DefaultLayoutOverride>
+        <StartLayoutCollection>
+            <DefaultLayout:StartLayout GroupCellWidth="6" />
+        </StartLayoutCollection>
+    </DefaultLayoutOverride>
+    <CustomTaskbarLayoutCollection PinListPlacement="Replace">
+        <DefaultLayout:TaskbarLayout>
+            <Taskbar:TaskbarPinList xmlns:Taskbar="http://schemas.microsoft.com/Start/2014/TaskbarLayout">
+                <Taskbar:DesktopApp DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\System Tools\File Explorer.lnk" />
+            </Taskbar:TaskbarPinList>
+        </DefaultLayout:TaskbarLayout>
+    </CustomTaskbarLayoutCollection>
+</LayoutModificationTemplate>
