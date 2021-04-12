@@ -108,6 +108,7 @@ Disable-System-Sounds
 # Settings
 ##########
 
+# I know, i know, its obvious but u should provide your own secret.ps1 ;)
 Write-Host "Prep RD..."
 if (-not (Test-Path -Path "HKCU:\SOFTWARE\Microsoft\Terminal Server Client\Default")) { New-Item "HKCU:\SOFTWARE\Microsoft\Terminal Server Client\Default" -Force -EA SilentlyContinue }
 New-ItemProperty    -Path "HKCU:\SOFTWARE\Microsoft\Terminal Server Client\Default" -Name "MRU0" -Value "$ip"
@@ -124,6 +125,7 @@ Write-Host "OVPN..."
 Write-Host "Edge..."
 #Install-Msi (Get-Path "Setup\edge.msi")
 
+# Aaaaand here is it the same :)))
 $profileFile = Get-Path "Data\profile.ovpn" 
 $profile = $profileFile -Replace ".ovpn"
 $openConfig =  (Get-Path "..\OpenVPN\config\" -Create | Select -Last 1)
