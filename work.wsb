@@ -1,0 +1,13 @@
+<Configuration>
+ <vGPU>Enable</vGPU>
+ <MappedFolders>
+   <MappedFolder>
+     <HostFolder>%USERPROFILE%\work\shared.wsb</HostFolder>
+     <SandboxFolder>C:\Users\WDAGUtilityAccount\work.shared.wsb</SandboxFolder>
+     <ReadOnly>true</ReadOnly>
+   </MappedFolder>
+ </MappedFolders>
+ <LogonCommand>
+    <Command>C:\Users\WDAGUtilityAccount\work.shared.wsb\startup.bat</Command>	
+ </LogonCommand>
+</Configuration>
