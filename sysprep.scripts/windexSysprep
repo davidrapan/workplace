@@ -1,0 +1,3 @@
+%WINDIR%\System32\Sysprep.exe /quiet /oobe /generalize /reboot /unattend:%USERPROFILE%\sysprep.scripts\Data\unattend_sysprep.xml
+if NOT ["%errorlevel%"] == ["0"] pause
+exit /b %errorlevel%
