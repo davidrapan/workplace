@@ -6,6 +6,8 @@
 ########################################################
 ########################################################
 
+#Mix of helper functions, mine and borrowed too, refers to authors are sadly in second script which will join soon as possible :)))
+
 ## Try to acquire higher priviledges
 function Elevate-Privileges($Privilege)
 {
@@ -70,7 +72,8 @@ function New-FolderForced
 }
 
 ## Helpers 1
-function Get-Path{
+function Get-Path
+{
     param
     (
         [Parameter(Position = 0, Mandatory)]
@@ -85,7 +88,8 @@ function Get-Path{
 }
 
 ## Helpers 2
-function Get-Dir([Parameter(Position = 0, Mandatory)]$Path){
+function Get-Dir([Parameter(Position = 0, Mandatory)]$Path)
+{
     Split-Path (Get-Path $Path)
 }
 
@@ -256,10 +260,10 @@ function Set-WindowStyle
 
     Write-Verbose ("Set Window Style {1} on handle {0}" -f $MainWindowHandle, $($WindowStates[$style]))
 
-    $Win32ShowWindowAsync = Add-Type –MemberDefinition @"
+    $Win32ShowWindowAsync = Add-Type Â–MemberDefinition @"
     [DllImport("user32.dll")] 
     public static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
-"@  -Name "Win32ShowWindowAsync" -Namespace Win32Functions –PassThru
+"@  -Name "Win32ShowWindowAsync" -Namespace Win32Functions Â–PassThru
 
     $Win32ShowWindowAsync::ShowWindowAsync($MainWindowHandle, $WindowStates[$Style]) | Out-Null
 }
