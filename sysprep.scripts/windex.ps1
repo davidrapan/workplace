@@ -359,7 +359,7 @@ Conditional-Set-ItemProperty $HKLMSwitch -Path "HKCR:\AllFilesystemObjects" -Nam
 
 Write-Host "Stranger Things back&forth to..."
 Conditional-New-FolderForced $HKLMSwitch -Path "HKCR:\AllFilesystemObjects\shellex\ContextMenuHandlers\Copy to"
-Conditional-Set-ItemProperty $HKLMSwitch -Path "HKCR:\AllFilesystemObjects\shellex\ContextMenuHandlers\Copy to" -Name "(default)" -Value "{C2FBB631-2971-11D1-A18C-00C04FD75D13}"
+Conditional-Set-ItemProperty $HKLMSwitch -Path "HKCR:\AllFilesystemObjects\shellex\ContextMenuHandlers\Copy to" -Name "(default)" -Value "{C2FBB630-2971-11D1-A18C-00C04FD75D13}"
 Conditional-New-FolderForced $HKLMSwitch -Path "HKCR:\AllFilesystemObjects\shellex\ContextMenuHandlers\Move to"
 Conditional-Set-ItemProperty $HKLMSwitch -Path "HKCR:\AllFilesystemObjects\shellex\ContextMenuHandlers\Move to" -Name "(default)" -Value "{C2FBB631-2971-11D1-A18C-00C04FD75D13}"
 
