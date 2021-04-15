@@ -104,7 +104,7 @@ Set-ItemProperty -Path "HKCR:\AllFilesystemObjects" -Name "DefaultDropEffect" -V
 
 Write-Host "MoveT&opyTo..."
 New-FolderForced -Path "HKCR:\AllFilesystemObjects\shellex\ContextMenuHandlers\Copy to"
-Set-ItemProperty -Path "HKCR:\AllFilesystemObjects\shellex\ContextMenuHandlers\Copy to" -Name "(default)" -Value "{C2FBB631-2971-11D1-A18C-00C04FD75D13}"
+Set-ItemProperty -Path "HKCR:\AllFilesystemObjects\shellex\ContextMenuHandlers\Copy to" -Name "(default)" -Value "{C2FBB630-2971-11D1-A18C-00C04FD75D13}"
 New-FolderForced -Path "HKCR:\AllFilesystemObjects\shellex\ContextMenuHandlers\Move to"
 Set-ItemProperty -Path "HKCR:\AllFilesystemObjects\shellex\ContextMenuHandlers\Move to" -Name "(default)" -Value "{C2FBB631-2971-11D1-A18C-00C04FD75D13}"
 
