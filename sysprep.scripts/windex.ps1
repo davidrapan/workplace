@@ -354,9 +354,13 @@ Write-Host "Always in hurry, soooo..."
 Conditional-Set-ItemProperty $HKLMSwitch -Path "HKCR:\.txt\ShellNew" -Name "NullFile" -Value 1
 
 Write-Host "Drag&Drop >> Shortcut as default (U know why)..."
-Conditional-Set-ItemProperty $HKLMSwitch -Path "HKCR:\*" -Name "DefaultDropEffect" -Value 4
+Conditional-Set-ItemProperty $HKLMSwitch -LiteralPath "HKCR:\*" -Name "DefaultDropEffect" -Value 4
 Conditional-Set-ItemProperty $HKLMSwitch -Path "HKCR:\AllFilesystemObjects" -Name "DefaultDropEffect" -Value 4
+
+Write-Host "Stranger Things back&forth to..."
+Conditional-New-FolderForced $HKLMSwitch -Path "HKCR:\AllFilesystemObjects\shellex\ContextMenuHandlers\Copy to"
 Conditional-Set-ItemProperty $HKLMSwitch -Path "HKCR:\AllFilesystemObjects\shellex\ContextMenuHandlers\Copy to" -Name "(default)" -Value "{C2FBB631-2971-11D1-A18C-00C04FD75D13}"
+Conditional-New-FolderForced $HKLMSwitch -Path "HKCR:\AllFilesystemObjects\shellex\ContextMenuHandlers\Move to"
 Conditional-Set-ItemProperty $HKLMSwitch -Path "HKCR:\AllFilesystemObjects\shellex\ContextMenuHandlers\Move to" -Name "(default)" -Value "{C2FBB631-2971-11D1-A18C-00C04FD75D13}"
 
 ##########
