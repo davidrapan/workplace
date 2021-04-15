@@ -2,7 +2,7 @@
 param
 (
     [Parameter(Position = 0, Mandatory)]
-    [String]$Path
+    [String]$Path = "$ENV:USERPROFILE\work\shared.wsb\
 )
 
 ########################################################
@@ -15,8 +15,8 @@ Set-Location $Path
 ## For Import
 Set-ExecutionPolicy Unrestricted -Scope Process -Force -Confirm:$false
 
-. $Path\include.ps1
-. $Path\Data\secret.ps1 #Pssssst!
+. .\include.ps1
+. .\Data\secret.ps1 #pssssst!
 
 ## Revert Executio Policy Changes
 Set-ExecutionPolicy Default -Scope Process -Force -Confirm:$false
@@ -98,9 +98,15 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer
 Write-Host "New Text Document direct name editing..."
 Set-ItemProperty -Path "HKCR:\.txt\ShellNew" -Name "NullFile" -Value 1
 
-#Write-Host "Drag&Drop >> Shortcut as default (U know why)..."
-#Set-ItemProperty -Path "HKCR:\*" -Name "DefaultDropEffect" -Value 4
-#Set-ItemProperty -Path "HKCR:\AllFilesystemObjects" -Name "DefaultDropEffect" -Value 4
+Write-Host "Drag&Drop >> Shortcut as default (U know why)..."
+Set-ItemProperty -LiteralPath "HKCR:\*" -Name "DefaultDropEffect" -Value 4
+Set-ItemProperty -Path "HKCR:\AllFilesystemObjects" -Name "DefaultDropEffect" -Value 4
+
+Write-Host "MoveT&opyTo..."
+New-FolderForced -Path "HKCR:\AllFilesystemObjects\shellex\ContextMenuHandlers\Copy to"
+Set-ItemProperty -Path "HKCR:\AllFilesystemObjects\shellex\ContextMenuHandlers\Copy to" -Name "(default)" -Value "{C2FBB631-2971-11D1-A18C-00C04FD75D13}"
+New-FolderForced -Path "HKCR:\AllFilesystemObjects\shellex\ContextMenuHandlers\Move to"
+Set-ItemProperty -Path "HKCR:\AllFilesystemObjects\shellex\ContextMenuHandlers\Move to" -Name "(default)" -Value "{C2FBB631-2971-11D1-A18C-00C04FD75D13}"
 
 Disable-System-Sounds
 
